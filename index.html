@@ -111,14 +111,12 @@
 					searchYouTube(showOnly);
 				});
 				$('#changeView').click(function() {
-					console.log('CHANGE VIEW');
 					if (changeView) {
 						$('.row').attr('class', 'column');
 					} else {
 						$('.column').attr('class', 'row');
 					}
 					changeView = !changeView;
-					// changeView();
 				});
 				$('.tokenClass').click(function() {
 					pageToken.current = $(this).val() == 'Next' ? pageToken.nextPage : pageToken.prevPage;
@@ -187,12 +185,6 @@
 					$('.tokenClass');
 				});
 			}
-			// function changeView() {
-			// 	$('.row').toggleClass('column');
-			// 	// $('.row').css('backgroundColor', 'yellow');
-			// 	// $('#myParagraph').css({ backgroundColor: 'black', color: 'white' });
-			// 	// $('.bordered').css('border', '1px solid black');
-			// }
 		</script>
 	</body>
 </html>
