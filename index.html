@@ -66,6 +66,7 @@
 					<input type="text" placeholder="search" id="search" />
 					<input type="button" value="search" id="searchButton" />
 					<div class="buttonOptions">
+						<input type="button" value="Change view" id="changeView" />
 						<input style="margin-top: rem;" type="button" class="tokenClass" id="pToken" value="Previous" />
 						<input style="margin-top: 0.5rem;" type="button" class="tokenClass" id="nToken" value="Next" />
 					</div>
@@ -97,6 +98,7 @@
 			var pageToken = {};
 			var pageWithCats = {};
 			var showOnly = false;
+			var changeView = true;
 			$(document).ready(function() {
 				$('.popup').hide();
 				$('.overlayBg').hide();
@@ -107,6 +109,16 @@
 				});
 				$('#searchButton').click(function() {
 					searchYouTube(showOnly);
+				});
+				$('#changeView').click(function() {
+					console.log('CHANGE VIEW');
+					if (changeView) {
+						$('.row').attr('class', 'column');
+					} else {
+						$('.column').attr('class', 'row');
+					}
+					changeView = !changeView;
+					// changeView();
 				});
 				$('.tokenClass').click(function() {
 					pageToken.current = $(this).val() == 'Next' ? pageToken.nextPage : pageToken.prevPage;
@@ -143,7 +155,7 @@
 					data: 'json',
 					type: 'GET',
 					data: {
-						key: 'AIzaSyDFyLcDGN8PCx-P2O2M5sCE1yHqs1E5NmY',
+						key: 'AIzaSyC-GviRa7Sa_YlTeHxZ052iwOSnJF8wLxA',
 						q: $('#search').val(),
 						part: 'snippet',
 						maxResults: 5,
@@ -175,6 +187,12 @@
 					$('.tokenClass');
 				});
 			}
+			// function changeView() {
+			// 	$('.row').toggleClass('column');
+			// 	// $('.row').css('backgroundColor', 'yellow');
+			// 	// $('#myParagraph').css({ backgroundColor: 'black', color: 'white' });
+			// 	// $('.bordered').css('border', '1px solid black');
+			// }
 		</script>
 	</body>
 </html>
